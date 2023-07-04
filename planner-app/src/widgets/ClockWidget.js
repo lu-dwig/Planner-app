@@ -25,5 +25,11 @@ export default function ClockWidget() {
     
     }
     
+    return (
+        <div>
+            <p className='time'>{time}</p>
+            <p className='date'>{tidyDate(date)}</p>
+        </div>
+    )
 }
 
