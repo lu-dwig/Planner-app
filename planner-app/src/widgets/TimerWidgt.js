@@ -18,5 +18,32 @@ export default function TimerWidget() {
         return hours + ':' + minutes + ':' + seconds
     }
   
+    useEffect(() => {
+        // timer logic
+        let interval = null
+        if (timerListData.isRunning && timerListData.time > 0) {
+            interval = setInterval(() => {
+              setTimerListData({
+                ...timerListData,
+                time: parseInt(timerListData.time) - 1,
+              })
+            }, 1000)
+        }else if (!timerListData.isRunning && timerListData.time !== 0) {
+            setTimerListData({
+                ...timerListData,
+                isRunning: false,
+            })
+            clearInterval(interval)
+        } else if (timerListData.isRunning && timerListData.time === 0) {
+            setTimerListData({
+                ...timerListData,
+                isRunning: false,
+            })
+            clearInterval(interval)
+            alert('Timer is up!')
+        }
+      
+            return () => clearInterval(interval)
+    },[timerListData, timerListData.isRunning, timerListData.time])
   
 }
