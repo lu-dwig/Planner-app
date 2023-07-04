@@ -46,4 +46,26 @@ export default function TimerWidget() {
             return () => clearInterval(interval)
     },[timerListData, timerListData.isRunning, timerListData.time])
   
+    return (
+        <div style={{ minWidth: 300 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "row" }}>
+              <p>Timer</p>
+            </div>
+            <div className='timer-container'>
+                <div className='timer-display'>
+                  {timerListData.isRunning ?
+                    <p style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>{tidyTime(timerListData.time)}</p>
+                    :
+                    <input type="text" className='text-input' value={timerListData.time} onChange={(e) => {
+                      setTimerListData({
+                        ...timerListData,
+                        time: e.target.value,
+                      })
+                    }} />
+                  }
+                </div>
+                
+            </div>
+        </div>
+    )
 }
