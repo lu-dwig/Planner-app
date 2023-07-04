@@ -18,5 +18,29 @@ export default function ReminderListWidget() {
         localStorage.setItem('reminderList', JSON.stringify(reminderListData))
     }, [reminderListData])
  
-     
+    return (
+        <div style={{ minWidth: 300 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "row" }}>
+                <p>Reminder List</p>
+                <button
+                    style={{
+                        background: "none",
+                        border: "none",
+                        color: "white",
+                        fontSize: "15px",
+                        cursor: "pointer",
+                    }}
+                    onClick={() => {
+                        setReminderListData([...reminderListData, {
+                            title: '',
+                            datestamp: '',
+                        }])
+                    }}
+                >+ New</button>
+            </div>
+            {reminderListData?.length > 0 && reminderListData.map((reminder, index) => {
+            
+            })}
+        </div>
+    ) 
 }   
