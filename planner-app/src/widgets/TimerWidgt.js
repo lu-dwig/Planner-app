@@ -64,7 +64,38 @@ export default function TimerWidget() {
                     }} />
                   }
                 </div>
-                
+                <div className='timer-controls' style={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
+                    <button
+                        style={{
+                            background: "none",
+                            border: "none",
+                            color: "white",
+                            fontSize: "15px",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => {
+                            setTimerListData({
+                                ...timerListData,
+                                isRunning: !timerListData.isRunning,
+                            })
+                        }}
+                    >{timerListData.isRunning ? 'Stop' : 'Start'}</button>
+                    <button
+                        style={{
+                            background: "none",
+                            border: "none",
+                            color: "white",
+                            fontSize: "15px",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => {
+                            setTimerListData({
+                                ...timerListData,
+                                time: 0,
+                            })  
+                        }}
+                    >Reset</button>
+                </div>
             </div>
         </div>
     )
