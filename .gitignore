@@ -1,1 +1,4 @@
 .hintrc
+
+# Local Netlify folder
+.netlify
