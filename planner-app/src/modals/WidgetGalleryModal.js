@@ -11,5 +11,18 @@ export default function WidgetGalleryModal({ setShowWidgetModal, selectedWidgetA
         { component: <TimerWidget />, name: "Timer" },
         { component: <CalendarWidget />, name: "Calendar" },
     ])
-    
+    return (
+        <div className="modal"
+            onClick={(e) => {
+                setShowWidgetModal(false)
+            }}
+        >
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h2>Widget Gallery</h2>
+                    
+                </div>
+            </div>
+        </div>
+    )
 }
