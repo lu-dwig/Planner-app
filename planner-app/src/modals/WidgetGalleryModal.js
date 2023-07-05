@@ -45,7 +45,12 @@ export default function WidgetGalleryModal({ setShowWidgetModal, selectedWidgetA
                                         }
                                     }}
                                 >
-                                                                   </div>
+                                    <div className='row'>
+                                        <div className='widget-gallery-item-name'>{widget.name}</div>
+                                        <div className='widget-gallery-item-add-button'>+</div>
+                                    </div>
+                                    {widget.component}
+                                </div>
                             )
                         })}
                     </div>
