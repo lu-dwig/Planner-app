@@ -25,6 +25,19 @@ function App() {
     
     return (
         <>
+            {showWidgetModal && <WidgetGalleryModal setShowWidgetModal={setShowWidgetModal} selectedWidgetArea={selectedWidgetArea} widgets={widgets} setWidgets={setWidgets} />}
+            <div className="add-button"
+                onClick={() => {
+                    console.log('add button clicked')
+                    setShowWidgetModal(true)
+                    setSelectedWidgetArea('none-widget')
+                }}
+            >
+                <p
+                    className='add-widget-button'
+                    style={{ background: "none", border: "none", color: "black", fontSize: "30px", cursor: "pointer", backgroundColor: "white", borderRadius: "50%", width: "50px", display: "flex", justifyContent: "center", alignItems: "center", height: "50px", position: "fixed", bottom: "10px", right: "10px" }}
+                >+</p>
+            </div>
             
         </>
     )
