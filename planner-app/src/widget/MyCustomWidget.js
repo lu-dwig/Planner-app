@@ -1,7 +1,7 @@
 import React , { useState } from 'react'
 import axios from 'axios'
 
-export default function WeatherWidget() {
+export default function MyCustomWidget() {
     const [weatherData, setWeatherData] = useState([{}])
     const [location, setLocation] = useState('')
     const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=3ce8ea4d3f861ddd84f72d9c268d89a6 `
