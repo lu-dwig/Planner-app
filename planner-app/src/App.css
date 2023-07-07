@@ -1,5 +1,5 @@
 .App {
-  background: url("assets/background.jpg");
+  background: url("assets/background.jpg") center center/cover;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -112,6 +112,7 @@ select {
   color: white;
   font-weight: bold;
   font-size: 25px;
+ 
 }
  
 .row {
@@ -154,4 +155,34 @@ select {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+.weather-container{
+  position: relative;
+  padding: 0 1rem;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+
+  .top{
+    width: 100%;
+    margin: 1rem auto;
+
+    .temp{
+      font-size: 3.5rem;
+    }
+    .description{
+      position: relative;
+      right: -100%;
+      transform-origin: 0 0;
+      transform: rotate(300deg);
+    }
+  }
+  .bottom{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
 }
