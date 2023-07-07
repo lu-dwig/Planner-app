@@ -36,21 +36,21 @@ export default function WeatherWidget() {
                             <p>{weatherData.name}</p>
                         </div>
                         <div className="temp">
-                            {weatherData.main ? <h1>{weatherData.main.temp}°C</h1>  : null}
+                            {weatherData.main ? <h1>{weatherData.main.temp} °F</h1>  : null}
                         </div>
                         <div className="description">
                             {weatherData.weather ? <p>{weatherData.weather[0].main}</p>  : null}
                         </div>
                     </div>
                     <div className="bottom">
-                        <div className="feels">
+                        <div className="feels" style={{ paddingRight: "5%", marginLeft: "-5%"}}>
                             {weatherData.main ? <p className="bold">{weatherData.main.feels_like}</p>  : null}
                         </div>
-                        <div className="humidity">
+                        <div className="humidity" style={{ paddingRight: "5%"}}>
                             {weatherData.main ? <p className="bold">{weatherData.main.humidity}%</p>  : null}
                         </div> 
-                        <div className="wind">
-                            {weatherData.main ? <p className="bold">{weatherData.main.wind}%</p>  : null}
+                        <div className="wind" style={{ paddingRight: "5%"}}>
+                            {weatherData.wind ? <p className="bold">{weatherData.wind.speed}MPH</p>  : null}
                         </div>
                     </div>  
                 </div>
