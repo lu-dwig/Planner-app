@@ -1,36 +1,56 @@
 import React , { useState } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default function WeatherWidget() {
-
-    // const url='https://api.openweathermap.org/data/2.5/weather?q=Nairobi&appid=3ce8ea4d3f861ddd84f72d9c268d89a6 '
-    // const [WeatherData, setWeatherData] = useState([{}])
+    const [weatherData, setWeatherData] = useState([{}])
+    const [location, setLocation] = useState('')
+    const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=3ce8ea4d3f861ddd84f72d9c268d89a6 `
+    const searchLocation = (event) => {
+        if (event.key === 'Enter'){
+            axios.get(url).then((response) =>{
+                setWeatherData(response.data)
+                console.log(response.data)
+            })
+            setLocation('')
+        }
+    }
 
     return (
         <div style={{ minWidth: 370 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "row" }}>
+                <div>
                 <p>Weather Forecast.</p>
+                </div>
+                <div className="weather-search">
+                    <input 
+                        value={location}
+                        onChange={event => setLocation(event.target.value)}
+                        placeholder='Enter Location'
+                        onKeyPress={searchLocation}
+                        type="text"
+                    />
+                </div>
                 <div className="weather-container">
                     <div className="top">
-                        <div className="Location">
-                            <p>Nairobi</p>
+                        <div className="location">
+                            <p>{weatherData.name}</p>
                         </div>
                         <div className="temp">
-                            <h1>35C</h1> 
+                            {weatherData.main ? <h1>{weatherData.main.temp}°C</h1>  : null}
                         </div>
                         <div className="description">
-                            <p>clouds</p>
+                            {weatherData.weather ? <p>{weatherData.weather[0].main}</p>  : null}
                         </div>
                     </div>
                     <div className="bottom">
                         <div className="feels">
-                            <p>19C</p>
+                            {weatherData.main ? <p className="bold">{weatherData.main.feels_like}</p>  : null}
                         </div>
                         <div className="humidity">
-                            <p>20%</p>
+                            {weatherData.main ? <p className="bold">{weatherData.main.humidity}%</p>  : null}
                         </div> 
                         <div className="wind">
-                            <p>12mph</p>
+                            {weatherData.main ? <p className="bold">{weatherData.main.wind}%</p>  : null}
                         </div>
                     </div>  
                 </div>
